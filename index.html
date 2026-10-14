@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width">
+<title>Requirement ATS</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI}
+body{background:#f8fafc}
+header{background:#fff;padding:15px 5%;display:flex;justify-content:space-between;box-shadow:0 2px 8px #0001;position:sticky;top:0}
+.logo{font-weight:800;color:#4f46e5;font-size:20px}
+.tab{padding:8px 16px;border-radius:20px;cursor:pointer;border:1px solid #ddd;margin-left:10px}
+.tab.active{background:#4f46e5;color:#fff}
+.hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:50px 5%;text-align:center}
+.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 10px #0001;margin:15px 0}
+.btn{background:#4f46e5;color:#fff;padding:8px 16px;border:none;border-radius:8px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;padding:20px 5%}
+.kanban{display:flex;gap:15px;padding:20px 5%;overflow-x:auto}
+.column{background:#fff;min-width:200px;padding:15px;border-radius:10px;box-shadow:0 2px 8px #0001}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">Requirement ATS</div>
+<div>
+<span class="tab active" onclick="show('careers')">Careers</span>
+<span class="tab" onclick="show('dashboard')">Dashboard</span>
+</div>
+</header>
+
+<div id="careers">
+<div class="hero"><h1>Build Your Future With Us</h1><p>ATS Project - Final Year | React + FastAPI + PostgreSQL</p></div>
+<div class="grid">
+<div class="card"><h3>Software Engineer</h3><p>React, JS, 0-2 yrs</p><button class="btn" onclick="apply('Software Engineer')">Apply Now</button></div>
+<div class="card"><h3>Python Backend</h3><p>FastAPI, Python, APIs</p><button class="btn" onclick="apply('Python Backend')">Apply Now</button></div>
+<div class="card"><h3>UI/UX Designer</h3><p>Figma, CSS</p><button class="btn" onclick="apply('UI/UX Designer')">Apply Now</button></div>
+</div>
+</div>
+
+<div id="dashboard" style="display:none">
+<div style="padding:20px 5%"><h2>Recruiter Pipeline Board</h2><p>Drag & Drop Kanban - Document Section 2.3</p></div>
+<div class="kanban">
+<div class="column"><h4>Applied (3)</h4><div class="card">Rahul - SE</div><div class="card">Priya - Python</div></div>
+<div class="column"><h4>Screening (1)</h4><div class="card">Amit - Designer</div></div>
+<div class="column"><h4>Interview (1)</h4><div class="card">Sneha - SE</div></div>
+<div class="column"><h4>Offer</h4><p>No candidates</p></div>
+<div class="column"><h4>Hired (1)</h4><div class="card">Fathi - ATS Project ✅</div></div>
+</div>
+</div>
+
+<script>
+function show(id){
+document.getElementById('careers').style.display=id=='careers'?'block':'none';
+document.getElementById('dashboard').style.display=id=='dashboard'?'block':'none';
+document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',(i==0&&id=='careers')||(i==1&&id=='dashboard')))
+}
+function apply(job){ let name=prompt('Enter Your Name for '+job+':'); if(name){alert('Thanks '+name+'! Your application for '+job+' submitted. (Backend FastAPI integration pending)')}}
+</script>
+</body>
+</html>
